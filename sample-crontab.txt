@@ -1,0 +1,5 @@
+# Daily at 02:00 UTC
+0 2 * * * /usr/local/sbin/luna_backup_manager.sh backup --non-interactive >> /var/log/luna-backup/scheduler.log 2>&1
+
+# Weekly Sunday 03:00 UTC
+0 3 * * 0 /usr/local/sbin/luna_backup_manager.sh backup --non-interactive >> /var/log/luna-backup/scheduler.log 2>&1

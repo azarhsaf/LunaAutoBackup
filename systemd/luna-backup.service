@@ -1,0 +1,19 @@
+[Unit]
+Description=Luna HSM partition backup job
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=luna-backup
+Group=luna-backup
+ExecStart=/usr/local/sbin/luna_backup_manager.sh backup --non-interactive
+Nice=10
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log/luna-backup /var/lib/luna-backup /var/lock /etc/luna-backup
+
+[Install]
+WantedBy=multi-user.target
